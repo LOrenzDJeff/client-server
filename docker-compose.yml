@@ -1,0 +1,21 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./.
+      dockerfile: Dockerfile
+    container_name: serv
+    expose:
+      - "8000"
+  client:
+    build:
+      context: ./.
+      dockerfile: Dockerfile2
+    depends_on:
+      - server
+  test3:
+    build:
+      context: ./.
+      dockerfile: Dockerfile3
+
+  

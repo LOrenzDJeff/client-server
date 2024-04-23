@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+RUN apt-get update
+
+RUN apt-get install -y python3
+
+COPY ./server-client/client.py /app/client.py
+
+WORKDIR /app
+
+RUN chmod +x /app/client.py
+
+RUN echo "client ITs RUNNING"
+
+CMD ["python3", "client.py"]

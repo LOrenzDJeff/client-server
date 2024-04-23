@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+RUN apt-get update
+
+RUN apt-get install -y python3
+
+COPY ./server-client/test3.py /app/test3.py
+COPY ./server-client/database.py /app/database.py
+
+WORKDIR /app
+
+RUN chmod +x /app/test3.py
+
+
+CMD ["python3", "test3.py"]
